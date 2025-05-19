@@ -92,3 +92,54 @@ ggplot(top_10_reviews, aes(x = reorder(product_title, product_num_ratings), y = 
 
 
 
+# Select numeric variables for clustering
+clustering_data <- data[, c("product_price", "product_num_ratings")]
+
+# Find valid rows with complete and finite data
+valid_rows <- which(complete.cases(clustering_data) & 
+                      is.finite(rowSums(clustering_data)))
+
+# Subset data for clustering
+clustering_data_clean <- clustering_data[valid_rows, ]
+
+# Perform k-means clustering
+set.seed(123)
+kmeans_result <- kmeans(clustering_data_clean, centers = 3)
+
+# Initialize cluster column in original data
+data$cluster <- NA
+
+# Assign clusters only to valid rows
+data$cluster[valid_rows] <- kmeans_result$cluster
+
+
+
+
+# Visualize clusters: Price vs Number of Reviews colored by cluster
+library(ggplot2)
+
+ggplot(data[!is.na(data$cluster), ], aes(x = product_price, y = product_num_ratings, color = factor(cluster))) +
+  geom_point(alpha = 0.6) +
+  theme_minimal() +
+  labs(
+    title = "Product Clusters by Price and Number of Reviews",
+    x = "Price ($)",
+    y = "Number of Reviews",
+    color = "Cluster"
+  )
+
+# Select top 10 products by number of reviews
+top_10_reviews <- data[order(-data$product_num_ratings), ][1:10, ]
+
+# Plot top 10 products by number of reviews
+ggplot(top_10_reviews, aes(x = reorder(product_title, product_num_ratings), y = product_num_ratings)) +
+  geom_bar(stat = "identity", fill = "coral") +
+  coord_flip() +
+  theme_minimal() +
+  labs(
+    title = "Top 10 Products by Number of Reviews",
+    x = "Product Title",
+    y = "Number of Reviews"
+  )
+
+
