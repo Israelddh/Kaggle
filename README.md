@@ -31,7 +31,7 @@ The dataset includes key features such as product price, star rating, number of 
 
 ## 📁 How to Reproduce
 - Load the data: `amazon_best_sellers_software.csv`
-- Run the analysis in: `analysis.R`
+- Run the analysis in: `01_Amazon_best_seller_software.R`
 - The script performs EDA, visualizations, and clustering
 
 ## 📈 Potential Applications
