@@ -1,43 +1,35 @@
-# Amazon Best Sellers Analysis - Software Category 
-# [UNDER CONSTRUCTION]
+# Kaggle Dataset Explorations
 
-## Overview
+This repository showcases a collection of exploratory data analysis (EDA), modeling, and visualization projects based on datasets from [Kaggle](https://www.kaggle.com/). Each subfolder contains a self-contained analysis focused on extracting insights and building practical skills in data science.
 
-This project analyzes the Amazon Best Sellers dataset focusing on software products across different countries. The dataset includes product details such as prices, star ratings, number of reviews, and ranking information collected through an API.
+The goal is to explore diverse real-world datasets using R, applying techniques such as:
 
-The goal is to explore product popularity, pricing trends, and customer feedback using data visualization and clustering techniques.
+- Data cleaning and wrangling
+- Exploratory data analysis (EDA)
+- Clustering and classification
+- Data visualization
+- Domain-specific interpretation
 
-## Dataset Description
+These projects serve both as a learning path and a professional portfolio for data science and bioinformatics roles.
 
-The dataset contains real-time Amazon Best Sellers data, with the following key features:
+## Structure
 
-- **product_title**: Name of the software product  
-- **product_price**: Price of the product in the respective country’s currency  
-- **product_star_rating**: Average star rating from customers  
-- **product_num_ratings**: Number of customer reviews  
-- **rank**: Current ranking in the Best Sellers list  
-- **country**: Country where the product ranking is recorded  
+Each folder within this repository corresponds to an individual dataset and includes:
 
-## Objectives
+- A `README.md` describing the objectives and methods
+- The dataset used (`.csv` or `.json`)
+- The main analysis script(s), usually in R (`.R`)
 
-- Identify top-selling software products by number of reviews  
-- Analyze pricing and review patterns across countries  
-- Perform clustering on products based on price and number of reviews to identify distinct groups  
-- Visualize insights through bar charts and scatter plots with clusters
+## Completed Analyses
 
-## How to Use This Project
-
-- The main analysis is done in an R script (`analysis.R`)  
-- Use the dataset (`amazon_best_sellers_software.csv`) to reproduce the results  
-- Visualizations and cluster analysis help interpret market trends and customer preferences
-
-## Potential Applications
-
-- Market and competitor analysis for e-commerce businesses  
-- Pricing strategy optimization based on customer engagement  
-- Forecasting emerging best sellers in software categories
+| Project | Description |
+|---------|-------------|
+| [software-analysis](./01_Amazon_best_seller_softwares) | Analysis of Amazon Best Sellers in the Software category: pricing trends, reviews, and clustering of products across countries |
 
 ## Technologies Used
 
-- R programming language  
+- R (tidyverse, ggplot2, cluster, etc.)
+- Git & GitHub
+- Kaggle datasets
+
 
