@@ -7,7 +7,6 @@ library(visdat)
 library(ggplot2)
 library(tidyverse)
 
-
 data <- read.csv("01_Amazon_best_seller_softwares/best_sellers_data2.csv", stringsAsFactors = FALSE)
 View(data)
 
