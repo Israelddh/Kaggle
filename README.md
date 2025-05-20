@@ -1,43 +1,45 @@
-# Amazon Best Sellers Analysis - Software Category 
-# [UNDER CONSTRUCTION]
+# Amazon Best Sellers Analysis - Software Category
+**Status**: 🚧 *Work in Progress*
 
-## Overview
+## 📌 Overview
+This project explores Amazon Best Sellers data focused on software products across multiple countries. It aims to uncover insights about product popularity, pricing patterns, and customer engagement using data visualization and unsupervised learning techniques.
 
-This project analyzes the Amazon Best Sellers dataset focusing on software products across different countries. The dataset includes product details such as prices, star ratings, number of reviews, and ranking information collected through an API.
+The dataset includes key features such as product price, star rating, number of reviews, and sales rank, and was collected via the Amazon API.
 
-The goal is to explore product popularity, pricing trends, and customer feedback using data visualization and clustering techniques.
+## 🎯 Objectives
+- Identify top-performing software products based on customer reviews and ratings
+- Analyze pricing and review trends across different countries
+- Apply clustering techniques (e.g., k-means) to group products by price and review count
+- Visualize insights using clear and informative plots (bar charts, scatter plots with clusters)
 
-## Dataset Description
+## 📊 Dataset Summary
+**Filename**: `amazon_best_sellers_software.csv`
 
-The dataset contains real-time Amazon Best Sellers data, with the following key features:
+**Key Features**:
+- `product_title`: Software product name
+- `product_price`: Price (in local currency)
+- `product_star_rating`: Average customer rating
+- `product_num_ratings`: Number of reviews
+- `rank`: Best Seller rank
+- `country`: Country where product is ranked
 
-- **product_title**: Name of the software product  
-- **product_price**: Price of the product in the respective country’s currency  
-- **product_star_rating**: Average star rating from customers  
-- **product_num_ratings**: Number of customer reviews  
-- **rank**: Current ranking in the Best Sellers list  
-- **country**: Country where the product ranking is recorded  
+## 🛠️ Tools & Technologies
+- **R**: Data cleaning, visualization, clustering
+- **ggplot2**: Data visualization
+- **dplyr**: Data manipulation
+- **stats (kmeans)**: Clustering analysis
 
-## Objectives
+## 📁 How to Reproduce
+- Load the data: `amazon_best_sellers_software.csv`
+- Run the analysis in: `analysis.R`
+- The script performs EDA, visualizations, and clustering
 
-- Identify top-selling software products by number of reviews  
-- Analyze pricing and review patterns across countries  
-- Perform clustering on products based on price and number of reviews to identify distinct groups  
-- Visualize insights through bar charts and scatter plots with clusters
+## 📈 Potential Applications
+- Market and competitor analysis in e-commerce
+- Data-driven pricing strategy design
+- Identifying emerging product trends in the software category
 
-## How to Use This Project
+---
 
-- The main analysis is done in an R script (`analysis.R`)  
-- Use the dataset (`amazon_best_sellers_software.csv`) to reproduce the results  
-- Visualizations and cluster analysis help interpret market trends and customer preferences
-
-## Potential Applications
-
-- Market and competitor analysis for e-commerce businesses  
-- Pricing strategy optimization based on customer engagement  
-- Forecasting emerging best sellers in software categories
-
-## Technologies Used
-
-- R programming language  
+*This project showcases data wrangling, exploratory analysis, and unsupervised learning skills applied to a real-world dataset from e-commerce.*
 
