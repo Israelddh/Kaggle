@@ -24,7 +24,7 @@ Each folder within this repository corresponds to an individual dataset and incl
 
 | Project | Description |
 |---------|-------------|
-| [software-analysis](./software-analysis) | Analysis of Amazon Best Sellers in the Software category: pricing trends, reviews, and clustering of products across countries |
+| [software-analysis](./01_Amazon_best_seller_softwares) | Analysis of Amazon Best Sellers in the Software category: pricing trends, reviews, and clustering of products across countries |
 
 ## Technologies Used
 
