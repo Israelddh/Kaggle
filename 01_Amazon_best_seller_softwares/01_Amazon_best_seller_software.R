@@ -59,9 +59,7 @@ ggplot(top_10_reviews, aes(x = reorder(product_title, product_num_ratings), y = 
 
 
 
-
-
-
+# Clustering ----
 
 # Select numeric variables for clustering
 clustering_data <- data[, c("product_price", "product_num_ratings")]
@@ -84,10 +82,7 @@ data$cluster <- NA
 data$cluster[valid_rows] <- kmeans_result$cluster
 
 
-
-
 # Visualize clusters: Price vs Number of Reviews colored by cluster
-library(ggplot2)
 
 ggplot(data[!is.na(data$cluster), ], aes(x = product_price, y = product_num_ratings, color = factor(cluster))) +
   geom_point(alpha = 0.6) +
