@@ -13,13 +13,11 @@ View(data)
 
 str(data)
 head(data)
-
 summary(data)
 
 data$product_price <- as.numeric(gsub("\\$", "", data$product_price))
 
 vis_miss(data)
-
 
 # Check for any missing values in the 'product_star_rating' column
 sum(is.na(data$product_star_rating))
