@@ -1,7 +1,24 @@
+
 # Amazon Best Sellers Analysis: Software Category
 # Author: Israel David Duarte Herrera
-# Description: Exploratory analysis and clustering of Amazon software products 
-# to uncover pricing and review trends across countries.
+# Contact: www.linkedin.com/in/israel-duarte
+# GitHub: https://github.com/Israelddh
+# Date: 2025
+# Description:
+#   Exploratory Data Analysis and Clustering of Amazon software products
+#   to uncover pricing, review trends, and product groupings across countries.
+#
+# Project: Data Science Portfolio - Amazon Software Best Sellers
+# Purpose:
+#   Demonstrate data cleaning, visualization, and unsupervised learning skills
+#   using real-world e-commerce dataset.
+#
+# Tools:
+#   R (readr, dplyr, ggplot2, visdat)
+#
+# Notes:
+#   This script performs data wrangling, exploratory analysis, and k-means clustering.
+
 
 # ================================
 # Load required libraries
