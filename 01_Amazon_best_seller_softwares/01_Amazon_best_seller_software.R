@@ -23,10 +23,18 @@
 # ================================
 # Load required libraries
 # ================================
+if (!requireNamespace("hivecolors", quietly = TRUE)) {
+  if (!requireNamespace("devtools", quietly = TRUE)) {
+    install.packages("devtools")
+  }
+  devtools::install_github("Israelddh/hivecolors")
+}
+
 library(readr)      # For reading CSV files
 library(dplyr)      # For data manipulation
 library(ggplot2)    # For data visualization
 library(visdat)     # For visualizing missing data patterns
+library(hivecolors) # Custom color palettes (developed by the author)
 
 
 # ================================
@@ -83,7 +91,7 @@ cat("Remaining rows after filtering: ", nrow(data_clean), "\n")
 # indicating a positive customer perception overall.
 # There are fewer products with mid-range ratings (2-3 stars).
 ggplot(data_clean, aes(x = product_star_rating)) +
-  geom_bar(fill = "skyblue", color = "black") +
+  geom_bar(fill = hivecolors::hive_colors(10)[4], color = "black") +
   theme_minimal() +
   labs(title = "Distribution of Product Star Ratings", x = "Star Rating", y = "Count")
 
@@ -106,10 +114,9 @@ print(quantiles)
 # No missing values in 'product_num_ratings', so the feature is complete.
 
 ggplot(data_clean, aes(x = product_num_ratings)) +
-  geom_histogram(binwidth = 500, fill = "orange", color = "black", alpha = 0.7) +
+  geom_histogram(binwidth = 500, fill = hivecolors::hive_colors(10)[4], color = "black", alpha = 0.7) +
   theme_minimal() +
   labs(title = "Distribution of Number of Reviews", x = "Number of Reviews", y = "Count")
-
 
 
 # ================================
@@ -127,7 +134,7 @@ cat("Correlation between price and number of reviews: ", correlation, "\n")
 #   suggesting that more expensive products do not necessarily have more reviews.
 #   This scatter plot helps visualize whether popular products tend to cluster in a certain price range.
 ggplot(data_clean, aes(x = product_price_clean, y = product_num_ratings)) +
-  geom_point(alpha = 0.5, color = "darkgreen") +
+  geom_point(alpha = 0.5, color = hivecolors::hive_colors(10)[4]) +
   theme_minimal() +
   labs(title = "Price vs. Number of Reviews", x = "Price ($)", y = "Number of Reviews")
 
@@ -146,7 +153,7 @@ top_10_reviews <- data_clean %>%
 #   This highlights how a few flagship products strongly stand out in popularity,
 #   compared to the rest of the dataset.
 ggplot(top_10_reviews, aes(x = reorder(product_title, product_num_ratings), y = product_num_ratings)) +
-  geom_bar(stat = "identity", fill = "coral") +
+  geom_bar(stat = "identity", fill = hivecolors::hive_colors(10)[4]) +
   coord_flip() +
   theme_minimal() +
   labs(title = "Top 10 Products by Number of Reviews", x = "Product Title", y = "Number of Reviews")
@@ -188,7 +195,8 @@ data_clean$cluster[valid_rows] <- kmeans_result$cluster
 # Visualize clusters: Price vs. Number of Reviews
 # ================================
 ggplot(data_clean[!is.na(data_clean$cluster), ], aes(x = product_price_clean, y = product_num_ratings, color = factor(cluster))) +
-  geom_point(alpha = 0.6) +
+  geom_point(alpha = 0.35) +
+  scale_color_hive(discrete = TRUE) +
   theme_minimal() +
   labs(
     title = "Product Clusters by Price and Number of Reviews",
@@ -196,6 +204,7 @@ ggplot(data_clean[!is.na(data_clean$cluster), ], aes(x = product_price_clean, y 
     y = "Number of Reviews",
     color = "Cluster"
   )
+
 
 
 # Status: 🚧 Work in Progress
